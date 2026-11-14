@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew & Bean | Coffee House</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #f7f3eb;
+            color: #30251e;
+        }
+
+        header {
+            height: 85px;
+            padding: 0 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f7f3eb;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 27px;
+            font-weight: bold;
+            color: #5c3828;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #30251e;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a46b45;
+        }
+
+        .hero {
+            min-height: 620px;
+            display: flex;
+            align-items: center;
+            padding: 70px 8%;
+            background:
+                linear-gradient(90deg, rgba(30,20,15,0.78), rgba(30,20,15,0.15)),
+                url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1800&q=85');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero small {
+            color: #e5c7a8;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 68px;
+            line-height: 1.1;
+            margin: 22px 0;
+        }
+
+        .hero p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #eee5dc;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: #b77b50;
+            color: white;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #8c5736;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: #a46b45;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-top: 12px;
+        }
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            line-height: 1.9;
+            color: #76665a;
+            margin-bottom: 20px;
+        }
+
+        .menu {
+            background: #eee7db;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .menu-card {
+            background: #fffdf8;
+            padding: 30px;
+            border-radius: 5px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px #5c38281c;
+        }
+
+        .menu-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .menu-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .menu-card p {
+            color: #84766b;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .price {
+            display: block;
+            color: #a46b45;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 18px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        .contact {
+            background: #30251e;
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: #d5c7ba;
+            line-height: 2;
+        }
+
+        .contact .btn {
+            margin-top: 25px;
+        }
+
+        footer {
+            background: #211913;
+            color: #c9b9aa;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        @media (max-width: 800px) {
+            header {
+                height: auto;
+                padding: 22px 5%;
+                flex-direction: column;
+                gap: 18px;
+            }
+
+            nav {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: 540px;
+                padding: 60px 7%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2,
+            .about h2,
+            .contact h2 {
+                font-size: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">Brew & Bean.</div>
+
+        <nav>
+            <a href="#acasa">Acasă</a>
+            <a href="#despre">Despre noi</a>
+            <a href="#meniu">Meniu</a>
+            <a href="#galerie">Galerie</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="acasa">
+            <div class="hero-content">
+                <small>Welcome to Brew & Bean</small>
+                <h1>Good coffee.<br>Good moments.</h1>
+                <p>
+                    Cafea de specialitate, deserturi delicioase și
+                    momente frumoase într-un loc creat pentru tine.
+                </p>
+                <a href="#meniu" class="btn">Descoperă meniul</a>
+            </div>
+        </section>
+
+        <section class="about" id="despre">
+            <img
+                src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85"
+                alt="Cafea proaspăt preparată">
+
+            <div>
+                <h2>Mai mult decât o simplă cafea.</h2>
+                <p>
+                    La Brew & Bean credem că fiecare zi merită
+                    începută cu o cafea bună.
+                </p>
+                <p>
+                    Am creat un spațiu cald și primitor, unde
+                    aromele cafelei proaspete se întâlnesc cu
+                    atmosfera relaxantă și oamenii frumoși.
+                </p>
+                <a href="#contact" class="btn">Vizitează-ne</a>
+            </div>
+        </section>
+
+        <section class="menu" id="meniu">
+            <div class="section-title">
+                <small>Our selection</small>
+                <h2>Preferatele noastre</h2>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=700&q=85" alt="Espresso">
+                    <h3>Espresso</h3>
+                    <p>Cafea intensă, cu aromă bogată și gust echilibrat.</p>
+                    <span class="price">10 lei</span>
+                </div>
+
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=85" alt="Cappuccino">
+                    <h3>Cappuccino</h3>
+                    <p>Espresso fin, lapte cremos și spumă delicată.</p>
+                    <span class="price">15 lei</span>
+                </div>
+
+                <div class="menu-card">
+                    <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&fit=crop&w=700&q=85" alt="Latte">
+                    <h3>Caffe Latte</h3>
+                    <p>O combinație delicată pentru momente de relaxare.</p>
+                    <span class="price">17 lei</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="galerie">
+            <div class="section-title">
+                <small>Our atmosphere</small>
+                <h2>Un loc special</h2>
+            </div>
+
+            <div class="gallery-grid">
+                <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=700&q=85" alt="Interior de cafenea">
+                <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=700&q=85" alt="Cafea servită">
+                <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=700&q=85" alt="Atmosferă de cafenea">
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Te așteptăm la cafea!</h2>
+            <p>Strada Exemplului nr. 10, Oradea</p>
+            <p>Luni – Duminică: 08:00 – 20:00</p>
+            <p>Telefon: 07XX XXX XXX</p>
+            <a href="mailto:contact@brewandbean.ro" class="btn">Contactează-ne</a>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Brew & Bean. Toate drepturile rezervate.
+    </footer>
+
+</body>
+</html>
